@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="account-container">
+        <h1> My Admin Account </h1>
+        <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+        <div class="account-box">
+            <div class="account-items"> 
+                <p><b>First name:</b> {{ user_fname }}</p> 
+            </div>
+            <div class="account-items">
+                <p><b>Last name:</b> {{ user_lname }}</p> 
+            </div>
+            <div class="account-items">
+                <p><b>Email:</b> {{ user_email }} </p>
+            </div>
+            <a href="#"><button type="submit"> Edit account details</button></a>  
+        </div>
+
+    </div>
+</main>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
+    

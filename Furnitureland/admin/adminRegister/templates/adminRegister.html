@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+<main class="container">
+    <div class="sign-up-container">
+        <h1> Register a new admin </h1>
+        <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+        <form class="sign-up-box" method="post" action={{url_for('adminRegister_page.adminRegister')}}>
+            <div class="names-wrapper">
+                <input name="fname" type="text" placeholder="First name">
+                <input name="lname" type="text" placeholder="Last name">
+            </div>
+            <input name="email" type="text" placeholder="Email">
+            <input name="password" type="password" placeholder="Password">
+            <button type="submit"> Register admin </button>
+        </form>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="cart-container">
+            <div class="success-middle">
+                {% for category, message in get_flashed_messages(with_categories=True) %}
+                  <div class="alert-{{category}}">{{ message }}</div>
+                {% endfor %}
+              </div>
+            <div class="header-text">
+                <h1>Shopping cart</h1>
+                <h1>1 Items</h1>
+            </div>
+
+            <div class="lower-header-text">
+                <p><b>Product Details</b></p>
+                <p><b>Price</b></p>
+            </div>
+
+            <form method="post" action={{url_for('cart_page.cart')}}>
+                {% for all_product in all_temp_products %}
+                    <div class="products">
+                        <p>  {{ all_product['product_name'] }}  </p>
+                        <p> £ {{ all_product['product_price']}} </p>
+                    </div>
+                {% endfor %}
+
+                <div class="btm-page">
+                    <p class="continue-shopping-link"><a href="products">Continue Shopping</a></p>
+                    <div class="price-btn-container">
+                        <button type="submit"> Checkout </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="log-in">
+            <h1> Update user order </h1>
+            <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+        </div>
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+        <div class="sign-up-container">
+            <form class="sign-up-box info" method="post" action={{url_for('editUsersOrders_page.editUsersOrders')}}>
+                {% for all_orders in all_userOrders%}
+                {%endfor%}
+                <button type="submit"> Update order </button>
+            </form>
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

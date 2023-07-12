@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+<main class="container">
+    <div class="sign-up-container">
+        <h1> Register a new product </h1>
+        <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+        <form class="product-box" method="post" enctype="multipart/form-data" action={{url_for('addProducts_page.addProducts')}}>
+            <input class="product" name="product_name" type="text" placeholder="Product name">
+            <input class="info-box" name="product_info" type="text" placeholder="product_info"> 
+            <input class="product" name="product_price" type="text" placeholder="Price">
+            <input class="image-box" name="image" type="file" placeholder="Image">
+            <button type="submit"> Register product </button>
+        </form>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

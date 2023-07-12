@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+<main class="container">
+        
+    <div class="log-in">
+        <h1> View products </h1>
+        <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+    </div>
+    <div class="add-buttons">
+        <a href="addProducts"><button class="button">Add Product</button></a>
+    </div>  
+    <table>
+            <tr>
+                <th>Product name</th>
+                <th>Product description</th>
+                <th>Product price</th>
+                <th class="end-class">Edit product</th>
+            </tr>
+            {% for all_product in every_product %}
+                <tr>
+                    <td>{{all_product['product_name']}}</td> 
+                    <td>{{all_product['product_info']}}</td>
+                    <td>£ {{all_product['product_price']}}</td>
+                    <td class="end-class"><a><i class="far fa-edit"></i></a></td>
+                </tr>
+            {% endfor %}
+    </table>
+
+</main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

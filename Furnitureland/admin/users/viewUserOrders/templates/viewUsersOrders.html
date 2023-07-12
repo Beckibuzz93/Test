@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <div class="log-in">
+            <h1> View user orders </h1>
+            <a href="adminDashboard"><button type="submit" class="button"> Go back to dashboard </button></a>
+        </div>
+        <table>
+            <tr>
+                <th>Order number</th>
+                <th>User email</th>
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Order track</th>
+                <th class="end-class">Edit user order</th>
+            </tr>
+            {% for all_user_orders in all_userOrders %}
+                <tr>
+                    <form method="post" action={{url_for('gettingUserInfo_page.gettingUserInfo')}}>
+                        <input name="order_number" type="hidden" value="{{ all_user_orders['order_number'] }}">
+                        <td>{{ all_user_orders['order_number'] }}</td>
+                        <input name="email" type="hidden" value="{{ all_user_orders['email'] }}">
+                            <td>{{ all_user_orders['email'] }}</td>
+                        <input name="product_name" type="hidden" value="{{ all_user_orders['product_name'] }}">
+                            <td>{{ all_user_orders['product_name'] }} </td>
+                        <input name="product_price" type="hidden" value="{{ all_user_orders['product_price'] }}">
+                            <td>{{ all_user_orders['product_price'] }} </td>
+                        <input name="order_track" type="hidden" value="{{ all_user_orders['order_track'] }}">
+                            <td>{{ all_user_orders['order_track'] }} </td>
+                        <td class="end-class"><button class="button-none" type="submit"><i class="far fa-edit"></i></button></td>
+                    </form>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

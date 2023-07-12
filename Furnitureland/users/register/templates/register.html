@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="sign-up-container">
+            <h1> Sign up to Furnitureland </h1>
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+                <div class="alert-{{category}}">{{ message }}</div>
+            {% endfor %}
+            <form class="sign-up-box" method="post" action={{url_for('register_page.register')}}>
+                <div class="names-wrapper">
+                    <input name="fname" type="text" placeholder="First name">
+                    <input name="lname" type="text" placeholder="Last name">
+                </div>
+                <input name="email" type="text" placeholder="Email">
+                <input name="password" type="password" placeholder="Password">
+                <button type="submit"> Log in </button>
+                <p> Got an account? Log in <a href="login">here</a> </p>
+            </form>
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

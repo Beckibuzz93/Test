@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <div class="log-in">
+            <h1> Your orders </h1>
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+                <div class="alert-{{category}}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <table>
+            <tr>
+                <th>Order number</th>
+                <th>Order item</th>
+                <th>Item price</th>
+                <th>Track order</th>
+                <th class="end-class">Delete order</th>
+            </tr>
+            {%for all_products in user%}
+                <tr>
+                    <form method="post" action={{url_for('deleteOrders_page.deleteOrders')}}>
+                    <input name="order_numb" type="hidden" value="{{ all_products['order_number'] }}">
+                    <td> {{ all_products['order_number']}}</td>
+                    <td> {{ all_products['product_name'] }} </td>
+                    <td> £ {{ all_products['product_price'] }} </td>
+                    <td> {{ all_products['order_track']}}</td>
+                    <td class="end-class"><button class="button-none" type="submit"><i class="fas fa-trash-alt"></i></button></td>
+                    </form>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
