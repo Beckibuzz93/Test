@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+} 
+html, 
+body{
+  font-family: 'League_Spartan', bold;
+  font-size: 14px;
+  line-height: 1rem;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  overflow-x: hidden;
+  background-image: url('./assets/background-stars.svg');
+  background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: cover;
+  background-color: #070724;
+}
+
+@font-face {
+  font-family: 'Antonio';
+  src: url(./Fonts/Antonio/Antonio-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: 'League_Spartan';
+  src: url(./Fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf);
+}
+
+
+h2 {
+  font-family: 'Antonio', Medium;
+  font-size: 2.8rem;
+  line-height: 3.71rem;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: 'League_Spartan', bold;
+  font-size: 0.85rem;
+  line-height: 1.78rem;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: 'League_Spartan', bold;
+  font-size: 0.78rem;
+  line-height: 1.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: 'Antonio', Medium;
+  line-height: 1.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+
